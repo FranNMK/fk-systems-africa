@@ -23,49 +23,21 @@
         }
     </script>
 
-    <!-- Custom CSS for the "Circuit Motif" visual signature -->
-    <style>
-        .circuit-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #C9922E 20%, #C9922E 80%, transparent);
-            position: relative;
-            margin: 2rem auto;
-            width: 80%;
-        }
-        .circuit-divider::before, .circuit-divider::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #C9922E;
-            border: 2px solid #0B2545;
-        }
-        .circuit-divider::before { left: 20%; }
-        .circuit-divider::after { right: 20%; }
-        
-        /* Reveal effects (default visible for now, will be animated in Module 5) */
-        .reveal { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-    </style>
+    <!-- Link to your external custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="bg-white text-gray-800 antialiased font-sans flex flex-col min-h-screen">
 
     <!-- Navbar -->
     <header class="bg-navy shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo Placeholder -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="/" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
                         <img src="/images/logo.png" alt="FK Systems Africa" class="h-10 w-auto" onerror="this.style.display='none'"> 
                         <span class="text-gold">FK</span> <span class="font-light text-white">Systems</span>
                     </a>
                 </div>
-
-                <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="/" class="text-white hover:text-gold transition-colors font-medium">Home</a>
                     <a href="/services" class="text-white hover:text-gold transition-colors font-medium">Services</a>
@@ -75,8 +47,6 @@
                     <a href="/about" class="text-white hover:text-gold transition-colors font-medium">About</a>
                     <a href="/contact" class="bg-gold text-navy px-4 py-2 rounded hover:bg-yellow-500 transition-colors font-semibold">Contact</a>
                 </nav>
-
-                <!-- Mobile Menu Hamburger Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
                         <svg id="menu-icon-open" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,8 +59,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Navigation Dropdown (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-gray-700">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="/" class="block text-white hover:text-gold px-3 py-2 rounded text-base font-medium">Home</a>
@@ -103,32 +71,4 @@
             </div>
         </div>
     </header>
-
-    <!-- Main Content -->
     <main>
-
-    <!-- Mobile Menu Toggle Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const iconOpen = document.getElementById('menu-icon-open');
-            const iconClose = document.getElementById('menu-icon-close');
-
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', function() {
-                    // Toggle the hidden class on the menu
-                    const isHidden = mobileMenu.classList.toggle('hidden');
-                    
-                    // Toggle the icons
-                    iconOpen.classList.toggle('hidden');
-                    iconClose.classList.toggle('hidden');
-
-                    // Update accessibility attribute
-                    menuBtn.setAttribute('aria-expanded', !isHidden);
-                });
-            }
-        });
-    </script>
-</body>
-</html>

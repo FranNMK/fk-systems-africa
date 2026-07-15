@@ -1,0 +1,41 @@
+/* public/css/style.css - FK Systems Africa Custom Styles */
+
+/* --- Circuit Motif Divider --- */
+.circuit-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9922E 20%, #C9922E 80%, transparent);
+    position: relative;
+    margin: 2rem auto;
+    width: 80%;
+}
+.circuit-divider::before, .circuit-divider::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #C9922E;
+    border: 2px solid #0B2545;
+}
+.circuit-divider::before { left: 20%; }
+.circuit-divider::after { right: 20%; }
+
+/* --- Scroll Reveal Animations (CSS-First Method) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
