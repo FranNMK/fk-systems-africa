@@ -23,7 +23,7 @@
         }
     </script>
 
-        <!-- Custom CSS for the "Circuit Motif" visual signature -->
+    <!-- Custom CSS for the "Circuit Motif" visual signature -->
     <style>
         .circuit-divider {
             height: 2px;
@@ -45,10 +45,9 @@
         .circuit-divider::before { left: 20%; }
         .circuit-divider::after { right: 20%; }
         
-        /* TEMPORARILY VISIBLE - we will make these animate in Module 5 */
+        /* Reveal effects (default visible for now, will be animated in Module 5) */
         .reveal { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        
         @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
     </style>
 </head>
@@ -77,17 +76,59 @@
                     <a href="/contact" class="bg-gold text-navy px-4 py-2 rounded hover:bg-yellow-500 transition-colors font-semibold">Contact</a>
                 </nav>
 
-                <!-- Mobile Menu Button -->
+                <!-- Mobile Menu Hamburger Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg id="menu-icon-open" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Navigation Dropdown (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-gray-700">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="/" class="block text-white hover:text-gold px-3 py-2 rounded text-base font-medium">Home</a>
+                <a href="/services" class="block text-gray-300 hover:text-gold px-3 py-2 rounded text-base font-medium">Services</a>
+                <a href="/solutions" class="block text-gray-300 hover:text-gold px-3 py-2 rounded text-base font-medium">Our Work</a>
+                <a href="/events" class="block text-gray-300 hover:text-gold px-3 py-2 rounded text-base font-medium">Events</a>
+                <a href="/training" class="block text-gray-300 hover:text-gold px-3 py-2 rounded text-base font-medium">Training</a>
+                <a href="/about" class="block text-gray-300 hover:text-gold px-3 py-2 rounded text-base font-medium">About</a>
+                <a href="/contact" class="block bg-gold text-navy text-center px-3 py-2 rounded text-base font-bold mt-2">Contact</a>
+            </div>
+        </div>
     </header>
 
-    <!-- REMOVED "flex-grow" from main so it doesn't stretch into empty white space -->
+    <!-- Main Content -->
     <main>
+
+            <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', function() {
+                    // Toggle the hidden class on the menu
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    
+                    // Toggle the icons
+                    iconOpen.classList.toggle('hidden');
+                    iconClose.classList.toggle('hidden');
+
+                    // Update accessibility attribute
+                    menuBtn.setAttribute('aria-expanded', !isHidden);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
