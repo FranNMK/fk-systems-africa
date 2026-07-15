@@ -1,18 +1,18 @@
 <!-- views/public/solutions.html -->
 <%- include('../partials/header.html') %>
 
-<section class="bg-navy text-white py-20 text-center">
+<section class="bg-navy text-white py-20 text-center reveal">
     <h1 class="text-4xl font-bold">Our Work & Impact</h1>
     <p class="mt-2 text-gray-300 max-w-2xl mx-auto">Discover the software we've built, the clients we've served, and the skills we've imparted.</p>
 </section>
 
-<div class="circuit-divider"></div>
+<div class="circuit-divider reveal"></div>
 
 <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-4 mb-10" id="filter-container">
+        <div class="flex flex-wrap justify-center gap-4 mb-10" id="filter-container reveal">
             <button class="filter-btn active bg-navy text-white px-4 py-2 rounded-full" data-filter="all">All Work</button>
             <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-navy hover:text-white transition" data-filter="software">Our Software</button>
             <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-navy hover:text-white transition" data-filter="client">Client Projects</button>
@@ -23,7 +23,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal" id="project-grid">
             
             <!-- Project Card (Software) -->
-            <div class="project-card p-6 border border-gray-200 rounded-xl shadow hover:shadow-lg transition" data-category="software">
+            <div class="project-card p-6 border border-gray-200 rounded-xl shadow hover:shadow-lg transition" data-category="software reveal">
                 <div class="h-32 bg-gray-100 rounded mb-4 flex items-center justify-center text-gray-400">Image Placeholder</div>
                 <span class="text-xs font-bold text-green uppercase tracking-wide">Our IP</span>
                 <h3 class="text-xl font-bold text-navy mt-1">FK LMS Platform</h3>
@@ -31,7 +31,7 @@
             </div>
 
             <!-- Project Card (Client) -->
-            <div class="project-card p-6 border border-gray-200 rounded-xl shadow hover:shadow-lg transition" data-category="client">
+            <div class="project-card p-6 border border-gray-200 rounded-xl shadow hover:shadow-lg transition" data-category="client reveal">
                 <div class="h-32 bg-gray-100 rounded mb-4 flex items-center justify-center text-gray-400">Image Placeholder</div>
                 <span class="text-xs font-bold text-gold uppercase tracking-wide">Client Project</span>
                 <h3 class="text-xl font-bold text-navy mt-1">FinTech Mobile App</h3>
@@ -39,7 +39,7 @@
             </div>
 
             <!-- Project Card (Training) -->
-            <div class="project-card p-6 border border-gray-200 rounded-xl shadow hover:shadow-lg transition" data-category="training">
+            <div class="project-card p-6 border border-gray-200 rounded-xl shadow hover:shadow-lg transition" data-category="training reveal">
                 <div class="h-32 bg-gray-100 rounded mb-4 flex items-center justify-center text-gray-400">Image Placeholder</div>
                 <span class="text-xs font-bold text-navy uppercase tracking-wide">Case Study</span>
                 <h3 class="text-xl font-bold text-navy mt-1">AI Literacy Workshop</h3>
