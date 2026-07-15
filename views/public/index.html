@@ -1,0 +1,100 @@
+<!-- views/public/index.html -->
+<%- include('../partials/header.html') %>
+
+<!-- HERO SECTION -->
+<section class="relative bg-navy text-white py-20 lg:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Building the Future of <span class="text-gold">Software</span> & <span class="text-green">AI</span> in Africa
+            </h1>
+            <p class="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
+                We craft world-class software solutions and equip the next generation of innovators with cutting-edge AI literacy.
+            </p>
+            
+            <!-- DUAL PATH CTA -->
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/contact?reason=hire" class="bg-gold text-navy font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition shadow-lg transform hover:-translate-y-1">
+                    Hire Us to Build
+                </a>
+                <a href="/training" class="bg-green text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition shadow-lg transform hover:-translate-y-1">
+                    Learn With Us
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Background watermark effect (Placeholder for logo) -->
+    <div class="absolute bottom-0 left-0 opacity-5 pointer-events-none">
+        <svg width="400" height="400" viewBox="0 0 100 100" fill="currentColor" class="text-white"> 
+            <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M10 50 L90 50 M50 10 L50 90" stroke="currentColor" stroke-width="2" />
+        </svg>
+    </div>
+</section>
+
+<!-- CIRCUIT MOTIF DIVIDER -->
+<div class="circuit-divider"></div>
+
+<!-- SERVICES PREVIEW -->
+<section class="py-16 bg-white reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-navy">What We Do</h2>
+        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">From M-Pesa integrations to enterprise AI strategy, we deliver end-to-end digital excellence.</p>
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
+                <div class="text-gold text-3xl mb-2">⚙️</div>
+                <h3 class="text-lg font-bold text-navy">Software & Web Dev</h3>
+                <p class="text-sm text-gray-600 mt-2">Custom platforms built for scale and performance.</p>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition bg-green-50 border-green-200">
+                <div class="text-green text-3xl mb-2">🧠</div>
+                <h3 class="text-lg font-bold text-navy">AI Integrations</h3>
+                <p class="text-sm text-gray-600 mt-2">Inject AI into your existing business systems.</p>
+            </div>
+            <div class="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
+                <div class="text-navy text-3xl mb-2">📱</div>
+                <h3 class="text-lg font-bold text-navy">M-Pesa & USSD</h3>
+                <p class="text-sm text-gray-600 mt-2">Mobile money integration for the Kenyan market.</p>
+            </div>
+        </div>
+        <a href="/services" class="inline-block mt-8 text-gold font-semibold hover:underline">Explore all 20+ services &rarr;</a>
+    </div>
+</section>
+
+<!-- FEATURED WORK / CREDIBILITY STRIP -->
+<section class="py-12 bg-gray-50 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-2xl font-bold text-navy mb-6">Trusted by leading organizations</h2>
+            <div class="flex flex-wrap justify-center gap-8 grayscale opacity-70">
+                <span class="text-xl font-bold text-gray-400">Company A</span>
+                <span class="text-xl font-bold text-gray-400">Tech Corp</span>
+                <span class="text-xl font-bold text-gray-400">Innovate Africa</span>
+                <span class="text-xl font-bold text-gray-400">FinTech Kenya</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CIRCUIT MOTIF DIVIDER -->
+<div class="circuit-divider"></div>
+
+<!-- TRAINING CTA -->
+<section class="py-16 bg-navy text-white reveal">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold">Ready to Upskill Your Team?</h2>
+        <p class="mt-2 text-gray-300">Equip your workforce with the AI and digital skills they need to thrive in the new economy.</p>
+        <a href="/training" class="mt-8 inline-block bg-gold text-navy font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition">Explore Training Programs</a>
+    </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="py-16 bg-white reveal">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-navy">Let's Build Something Great</h2>
+        <p class="mt-2 text-gray-600">Have a project in mind or want to learn more about our services? Reach out today.</p>
+        <a href="/contact" class="mt-8 inline-block border-2 border-navy text-navy font-bold py-3 px-8 rounded-full hover:bg-navy hover:text-white transition">Contact Us</a>
+    </div>
+</section>
+
+<%- include('../partials/footer.html') %>

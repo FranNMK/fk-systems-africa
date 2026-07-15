@@ -1,0 +1,93 @@
+<!-- views/partials/header.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || 'FK Systems Africa' %></title>
+    
+    <!-- Tailwind CSS CDN with Brand Color Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0B2545',
+                        gold: '#C9922E',
+                        green: '#1E6F46',
+                        gray: '#5A5A5A'
+                    }
+                }
+            }
+        }
+    </script>
+
+        <!-- Custom CSS for the "Circuit Motif" visual signature -->
+    <style>
+        .circuit-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C9922E 20%, #C9922E 80%, transparent);
+            position: relative;
+            margin: 2rem auto;
+            width: 80%;
+        }
+        .circuit-divider::before, .circuit-divider::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #C9922E;
+            border: 2px solid #0B2545;
+        }
+        .circuit-divider::before { left: 20%; }
+        .circuit-divider::after { right: 20%; }
+        
+        /* TEMPORARILY VISIBLE - we will make these animate in Module 5 */
+        .reveal { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-navy shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Placeholder -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                        <img src="/images/logo.png" alt="FK Systems Africa" class="h-10 w-auto" onerror="this.style.display='none'"> 
+                        <span class="text-gold">FK</span> <span class="font-light text-white">Systems</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-white hover:text-gold transition-colors font-medium">Home</a>
+                    <a href="/services" class="text-gray-300 hover:text-gold transition-colors font-medium">Services</a>
+                    <a href="/solutions" class="text-gray-300 hover:text-gold transition-colors font-medium">Our Work</a>
+                    <a href="/events" class="text-gray-300 hover:text-gold transition-colors font-medium">Events</a>
+                    <a href="/training" class="text-gray-300 hover:text-gold transition-colors font-medium">Training</a>
+                    <a href="/about" class="text-gray-300 hover:text-gold transition-colors font-medium">About</a>
+                    <a href="/contact" class="bg-gold text-navy px-4 py-2 rounded hover:bg-yellow-500 transition-colors font-semibold">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- REMOVED "flex-grow" from main so it doesn't stretch into empty white space -->
+    <main>

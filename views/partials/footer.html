@@ -1,0 +1,41 @@
+<!-- views/partials/footer.html -->
+    </main>
+
+    <!-- Added mt-auto to push footer to the bottom without stretching the main element -->
+    <footer class="mt-auto bg-navy text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl font-bold text-gold">FK</span> <span class="font-light text-white">Systems Africa</span>
+                </div>
+                <p class="text-gray-400 text-sm max-w-sm">
+                    Bridging the gap between African innovation and global technology through software engineering, AI integration, and digital skills empowerment.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Company</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="/about" class="hover:text-gold transition">About Us</a></li>
+                    <li><a href="/services" class="hover:text-gold transition">Services</a></li>
+                    <li><a href="/solutions" class="hover:text-gold transition">Our Work</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white mb-4">Connect</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="/contact" class="hover:text-gold transition">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-gold transition">LinkedIn</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Twitter / X</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 border-t border-gray-700 pt-6 text-center text-gray-500 text-xs">
+            &copy; <span id="year"></span> FK Systems Africa. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

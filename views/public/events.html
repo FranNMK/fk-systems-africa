@@ -1,0 +1,56 @@
+<!-- views/public/events.html -->
+<%- include('../partials/header.html') %>
+
+<section class="bg-navy text-white py-20 text-center">
+    <h1 class="text-4xl font-bold">Events & Impact</h1>
+    <p class="mt-2 text-gray-300 max-w-2xl mx-auto">Join our upcoming workshops, bootcamps, and AI forums, or see the impact of our past events.</p>
+</section>
+
+<div class="circuit-divider"></div>
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <h2 class="text-2xl font-bold text-navy mb-6">Upcoming Events</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <!-- Upcoming Event 1 -->
+            <div class="border border-gold bg-gold/5 p-6 rounded-xl shadow-sm relative overflow-hidden">
+                <span class="absolute top-0 right-0 bg-gold text-navy text-xs font-bold px-3 py-1 rounded-bl-lg">RSVP Open</span>
+                <h3 class="text-xl font-bold text-navy">AI Literacy Bootcamp: Cohort 4</h3>
+                <p class="text-gray-600 text-sm mt-1">A 4-week intensive training on generative AI, prompt engineering, and local AI applications.</p>
+                <div class="mt-4 flex justify-between items-center text-sm text-gray-500">
+                    <span>📅 July 28, 2026</span>
+                    <span>📍 Virtual & In-Person</span>
+                </div>
+                <a href="/contact" class="mt-4 inline-block bg-navy text-white px-4 py-2 rounded text-sm hover:bg-opacity-90">Register Interest</a>
+            </div>
+
+            <!-- Upcoming Event 2 -->
+            <div class="border border-gray-200 p-6 rounded-xl shadow-sm">
+                <h3 class="text-xl font-bold text-navy">Fintech & M-Pesa Integration Workshop</h3>
+                <p class="text-gray-600 text-sm mt-1">A technical deep-dive for developers on integrating M-Pesa APIs and designing USSD applications.</p>
+                <div class="mt-4 flex justify-between items-center text-sm text-gray-500">
+                    <span>📅 August 15, 2026</span>
+                    <span>📍 Virtual</span>
+                </div>
+                <a href="/contact" class="mt-4 inline-block bg-gray-200 text-gray-700 px-4 py-2 rounded text-sm hover:bg-gray-300">Register Interest</a>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-navy mb-6">Past Events</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h4 class="font-bold text-navy">AI Literacy for Executives</h4>
+                <p class="text-gray-500 text-xs mt-1">March 2026 • 50 attendees • 4.8/5 Feedback Rating</p>
+                <p class="text-gray-700 text-sm mt-2">Delivered to a regional bank's executive team, focusing on AI strategy and risk management.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h4 class="font-bold text-navy">Digital Skills Bootcamp: Cohort 3</h4>
+                <p class="text-gray-500 text-xs mt-1">January 2026 • 120 students • 4.9/5 Feedback Rating</p>
+                <p class="text-gray-700 text-sm mt-2">Trained 120 university students in web development, successfully placing 85% in internships.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/footer.html') %>
