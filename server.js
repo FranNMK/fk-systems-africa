@@ -13,6 +13,7 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const db = require('./config/db'); // Imports the DB connection file
 const requestLogger = require('./src/middleware/requestLogger');
+const adminRoutes = require('./src/routes/admin'); // Import Admin Routes
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -54,7 +55,7 @@ app.use(session({
     }
 }));
 
-// 4. Application Routes (Try/Catch blocks prevent blank white pages and log errors to your terminal)
+// 4. Public Application Routes (Works perfectly without needing a publicRoutes.js file right now)
 app.get('/', (req, res) => {
     try {
         res.render('public/index', { 
@@ -121,13 +122,16 @@ app.get('/contact', (req, res) => {
     }
 });
 
-// 5. Central Error Handler (Catches any unexpected errors from the above routes)
+// 5. Admin Application Routes
+app.use('/admin', adminRoutes); // Mounts the hidden admin panel at /admin
+
+// 6. Central Error Handler (Catches any unexpected errors from the above routes)
 app.use((err, req, res, next) => {
     req.log.error({ err }, '❌ Unhandled Server Error');
     res.status(500).send('Something broke! Check server logs.');
 });
 
-// 6. Boot Server
+// 7. Boot Server
 app.listen(PORT, () => {
     console.log(`🚀 FK Systems Africa server running on http://localhost:${PORT}`);
 });

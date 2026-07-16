@@ -1,0 +1,67 @@
+<!-- views/admin/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0B2545',
+                        gold: '#C9922E',
+                        green: '#1E6F46'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-navy min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white max-w-md w-full p-8 rounded-xl shadow-2xl">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-navy">FK Systems Admin</h1>
+            <p class="text-gray-500 text-sm mt-1">Enter your credentials to manage the site</p>
+        </div>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 text-sm">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form action="/admin/login" method="POST">
+            <!-- CSRF Token -->
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <!-- Return URL -->
+            <input type="hidden" name="returnUrl" value="<%= returnUrl %>">
+
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="email" name="email" required 
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:outline-none" 
+                    placeholder="admin@fksystems.africa">
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-bold text-gray-700 mb-2">Password</label>
+                <input type="password" id="password" name="password" required 
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:outline-none" 
+                    placeholder="Enter your password">
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-navy text-white font-bold py-3 px-4 rounded hover:bg-opacity-90 transition shadow-md">
+                Sign In
+            </button>
+        </form>
+        <div class="mt-6 text-center text-xs text-gray-500">
+            &copy; FK Systems Africa | Protected Area
+        </div>
+    </div>
+</body>
+</html>
