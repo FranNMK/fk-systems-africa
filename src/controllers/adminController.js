@@ -40,7 +40,8 @@ module.exports = {
       return res.status(403).render('admin/login', {
         title: 'Admin Login',
         csrfToken: csrfTokens.create(csrfTokens.secretSync()),
-        error: 'Invalid security token. Please refresh the page.'
+        error: 'Invalid security token. Please refresh the page.',
+        returnUrl: returnUrl // FIX: Added missing variable
       });
     }
 
@@ -54,7 +55,8 @@ module.exports = {
         return res.render('admin/login', {
           title: 'Admin Login',
           csrfToken: csrfTokens.create(csrfTokens.secretSync()),
-          error: 'Invalid email or password.'
+          error: 'Invalid email or password.',
+          returnUrl: returnUrl // FIX: Added missing variable
         });
       }
 
@@ -65,7 +67,8 @@ module.exports = {
         return res.render('admin/login', {
           title: 'Admin Login',
           csrfToken: csrfTokens.create(csrfTokens.secretSync()),
-          error: 'Invalid email or password.'
+          error: 'Invalid email or password.',
+          returnUrl: returnUrl // FIX: Added missing variable
         });
       }
 
@@ -85,7 +88,8 @@ module.exports = {
       return res.render('admin/login', {
         title: 'Admin Login',
         csrfToken: csrfTokens.create(csrfTokens.secretSync()),
-        error: 'Internal server error. Please try again.'
+        error: 'Internal server error. Please try again.',
+        returnUrl: returnUrl // FIX: Added missing variable
       });
     }
   },
@@ -128,4 +132,3 @@ module.exports = {
     });
   }
 };
-

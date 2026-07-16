@@ -4,6 +4,8 @@
  * initializes the TiDB session store, and connects to the database.
  */
 
+require('dotenv').config(); // <--- THIS LINE WAS MISSING!
+
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -16,6 +18,8 @@ const adminRoutes = require('./src/routes/admin'); // Import Admin Routes
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// ... (The rest of your file remains exactly the same)
 
 // 1. View Engine Configuration (Renders .html files using EJS)
 app.set('views', path.join(__dirname, 'views'));
