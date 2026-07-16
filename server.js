@@ -38,6 +38,8 @@ const sessionStore = new MySQLStore({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    // CRITICAL FIX: Adding SSL to the session store for TiDB Cloud
+    ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : false,
     clearExpired: true,
     checkExpirationInterval: 900000 // 15 minutes
 });
