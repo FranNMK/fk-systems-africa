@@ -1,32 +1,45 @@
-/* public/js/main.js - Scroll Reveal IntersectionObserver */
+/* public/js/main.js - Scroll Reveal & Mobile Menu Toggle */
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Select all elements with the 'reveal' class
-    const revealElements = document.querySelectorAll(".reveal");
-
-    // 2. Define the observer configuration
-    const observerOptions = {
-      root: null, // Uses the browser viewport
-      rootMargin: "0px", // No extra margins
-      threshold: 0.15 // Triggers when 15% of the element is visible
-    };
-
-    // 3. Create the observer callback function
-    const revealCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Add the 'active' class to trigger the CSS transition
-          entry.target.classList.add("active");
-          
-          // Stop observing if you only want the animation to happen once
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    // 4. Initialize the observer and attach it to elements
-    const observer = new IntersectionObserver(revealCallback, observerOptions);
     
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
+    // --- PART 1: SCROLL REVEAL (IntersectionObserver) ---
+    const revealElements = document.querySelectorAll(".reveal");
+    if (revealElements.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.15
+        };
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+        const observer = new IntersectionObserver(revealCallback, observerOptions);
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+
+    // --- PART 2: MOBILE HAMBURGER MENU TOGGLE ---
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            // Toggle the hidden class on the dropdown
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            
+            // Swap the hamburger icon and the 'X' icon
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+
+            // Update accessibility attribute (tells screen readers if menu is open or closed)
+            menuBtn.setAttribute('aria-expanded', !isHidden);
+        });
+    }
 });
