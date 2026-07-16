@@ -10,7 +10,7 @@ exports.seed = async function(knex) {
   await knex('admins').del();
 
   // Hash a secure password (replace 'YourSecurePassword123!' with your actual desired password)
-  const passwordHash = await bcrypt.hash('YourSecurePassword123!', 10);
+  const passwordHash = await bcrypt.hash('0710217048Frank.', 10);
 
   // Inserts the admin user
   await knex('admins').insert([
