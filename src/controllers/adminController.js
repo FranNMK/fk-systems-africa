@@ -2,11 +2,14 @@
  * src/controllers/adminController.js - Logic for admin authentication and dashboard.
  */
 
-const db = require('../../config/db');
+const dbModule = require('../../config/db');
 const bcrypt = require('bcryptjs');
 const csrf = require('csrf');
 
 const csrfTokens = new csrf(); // CSRF token generator
+
+// Helper to get db instance
+const getDb = () => dbModule.getDb();
 
 module.exports = {
   // GET /admin - Renders login page (or redirects to dashboard if already logged in)
@@ -42,6 +45,7 @@ module.exports = {
     }
 
     try {
+      const db = getDb();
       // Find the user by email
       const admin = await db('admins').where('email', email).first();
 
@@ -89,6 +93,7 @@ module.exports = {
   // GET /admin/dashboard - The admin home page
   getDashboard: async (req, res) => {
     try {
+      const db = getDb();
       // Fetch some quick stats for the dashboard
       const stats = await db.transaction(async (trx) => {
         const projectsCount = await trx('projects').count('id as count').first();
@@ -123,3 +128,4 @@ module.exports = {
     });
   }
 };
+

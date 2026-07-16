@@ -1,14 +1,8 @@
 /* 
  * knexfile.js - Knex configuration for FK Systems Africa.
- * Uses environment variables to connect to TiDB/MySQL.
+ * Loads environment variables for connection to TiDB/MySQL.
+ * NO dotenv dependency - Railway injects variables directly at runtime.
  */
-
-const fs = require('fs');
-const path = require('path');
-
-if (process.env.NODE_ENV !== 'production' && fs.existsSync(path.join(__dirname, '.env'))) {
-  require('dotenv').config();
-}
 
 const sharedConfig = {
   client: 'mysql2',
@@ -18,7 +12,6 @@ const sharedConfig = {
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    // TiDB requires SSL - we enable it strictly when the env var is true
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : false
   },
   migrations: {
@@ -33,3 +26,4 @@ module.exports = {
   development: sharedConfig,
   production: sharedConfig
 };
+
