@@ -4,6 +4,7 @@
  * initializes the TiDB session store, and connects to the database.
  */
 
+const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -13,6 +14,10 @@ const compression = require('compression');
 const db = require('./config/db'); // Imports the DB connection file
 const requestLogger = require('./src/middleware/requestLogger');
 const adminRoutes = require('./src/routes/admin'); // Import Admin Routes
+
+if (process.env.NODE_ENV !== 'production' && fs.existsSync(path.join(__dirname, '.env'))) {
+    require('dotenv').config();
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -140,4 +145,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`🚀 FK Systems Africa server running on http://localhost:${PORT}`);
 });
-
