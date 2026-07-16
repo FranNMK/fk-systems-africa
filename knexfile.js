@@ -1,9 +1,7 @@
 /* 
  * knexfile.js - Knex configuration for FK Systems Africa.
- * Loads environment variables from .env to connect to TiDB/MySQL.
+ * Loads environment variables from Railway to connect to TiDB/MySQL.
  */
-
-require('dotenv').config();
 
 const sharedConfig = {
   client: 'mysql2',
@@ -28,3 +26,4 @@ module.exports = {
   development: sharedConfig,
   production: sharedConfig
 };
+
