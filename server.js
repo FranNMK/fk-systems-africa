@@ -4,7 +4,6 @@
  * initializes the TiDB session store, and connects to the database.
  */
 
-require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -141,3 +140,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`🚀 FK Systems Africa server running on http://localhost:${PORT}`);
 });
+
