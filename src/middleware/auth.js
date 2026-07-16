@@ -8,7 +8,7 @@ module.exports = {
     if (req.session && req.session.adminId) {
       return next();
     }
-    // Redirect to the admin login page (with a return URL)
-    res.redirect('/admin?returnUrl=' + encodeURIComponent(req.originalUrl));
+    // CRITICAL: Added 'return' to stop the function from continuing execution!
+    return res.redirect('/admin?returnUrl=' + encodeURIComponent(req.originalUrl));
   }
 };

@@ -125,9 +125,13 @@ app.get('/contact', (req, res) => {
 // 5. Admin Application Routes
 app.use('/admin', adminRoutes); // Mounts the hidden admin panel at /admin
 
-// 6. Central Error Handler (Catches any unexpected errors from the above routes)
+// 6. Central Error Handler (Guarded against double-response crashes)
 app.use((err, req, res, next) => {
     req.log.error({ err }, '❌ Unhandled Server Error');
+    // If headers are already sent, let Express handle the termination gracefully
+    if (res.headersSent) {
+        return next(err);
+    }
     res.status(500).send('Something broke! Check server logs.');
 });
 
